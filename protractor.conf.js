@@ -1,8 +1,8 @@
 // Protractor configuration file, see link for more information
-// https://github.com/angular/protractor/blob/master/lib/config.ts
+// https://github.com/angular/protractor/blob/master/docs/referenceConf.js
 
 /*global jasmine */
-const { SpecReporter } = require('jasmine-spec-reporter');
+var SpecReporter = require('jasmine-spec-reporter');
 
 exports.config = {
   allScriptsTimeout: 11000,
@@ -20,12 +20,13 @@ exports.config = {
     defaultTimeoutInterval: 30000,
     print: function() {}
   },
+  useAllAngular2AppRoots: true,
   beforeLaunch: function() {
     require('ts-node').register({
       project: 'e2e'
     });
   },
-  onPrepare() {
-    jasmine.getEnv().addReporter(new SpecReporter({ spec: { displayStacktrace: true } }));
+  onPrepare: function() {
+    jasmine.getEnv().addReporter(new SpecReporter());
   }
 };
