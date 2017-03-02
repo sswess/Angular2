@@ -4,15 +4,15 @@ import {ShoppingListService} from "./shopping-list.service";
 
 @Component({
   selector: 'rb-shopping-list',
-  templateUrl: 'shopping-list.component.html',
-  providers: [ShoppingListService]
+  templateUrl: 'shopping-list.component.html'
 })
 export class ShoppingListComponent implements OnInit {
-    items:Ingredient[] = [];
-  constructor(private sls:ShoppingListService) {}
+  items: Ingredient[] = [];
+
+  constructor(private sls: ShoppingListService) {}
 
   ngOnInit() {
-    this.items = this.sls.getitems();
+    this.items = this.sls.getItems();
   }
 
 }
